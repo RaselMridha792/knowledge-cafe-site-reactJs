@@ -1,9 +1,13 @@
 import Body from "../body/body";
+import profile from '../../assets/profile.png'
 
 const Header = () => {
     return (
-        <div>
-            <h1 className='text-6xl font-bold'>React knowledge cafe</h1>
+        <div className="max-w-screen-2xl mx-auto">
+            <div className="flex border-b py-5 justify-between items-center">
+                <h1  className="font-bold md:text-4xl text-2xl">Knowledge Cafe</h1>
+                <img src={profile} alt="" />
+            </div>
             <Body></Body>
         </div>
     );

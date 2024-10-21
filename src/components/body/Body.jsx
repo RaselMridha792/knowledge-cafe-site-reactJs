@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BodyContainer from "./BodyContainer";
 
-const body = () => {
+const Body = () => {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(()=>{
@@ -21,4 +21,4 @@ const body = () => {
     );
 };
 
-export default body;
+export default Body;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 
 const BodyContainer = ({blog}) => {
     const {id, name} = blog;
@@ -11,4 +12,5 @@ const BodyContainer = ({blog}) => {
     );
 };
 
+BodyContainer.propTypes = {blog: PropTypes.object.isRequired}
 export default BodyContainer;
