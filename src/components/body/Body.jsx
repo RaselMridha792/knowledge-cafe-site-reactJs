@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import BodyContainer from "./BodyContainer";
+import Bookmarks from "./Bookmarks";
 
 const Body = () => {
     const [blogs, setBlogs] = useState([]);
+    const [bookmark, setBookmark] = useState([])
+    const [allBookmarks, setAllBookMarks] = useState([])
 
     useEffect(()=>{
         const loadData = async()=>{
@@ -12,11 +15,30 @@ const Body = () => {
         }
         loadData();       
     },[])
+
+
+
+    // handle bookmarks 
+    const blogBookmark = (blog) =>{
+        const newallBookmarks = [...allBookmarks, blog]
+        setAllBookMarks(newallBookmarks);
+    }
+
+    // handle total read times 
+    const handleBookMark = (blog) =>{
+        const newBookmark = [...bookmark, blog]
+        setBookmark(newBookmark);
+    }
     return (
-        <div>
+        <div className="flex flex-col md:flex-row w-full gap-7 py-10">
+            <div className="md:w-2/3">
             {
-                blogs.map((blog)=><BodyContainer key={blog.id} blog={blog}></BodyContainer>)
+                blogs.map((blog)=><BodyContainer key={blog.id} blog={blog} handleBookMark={handleBookMark} blogBookmark={blogBookmark}></BodyContainer>)
             }
+            </div>
+            <div className="md:w-1/3">
+                <Bookmarks bookmark={bookmark} allBookmarks={allBookmarks}></Bookmarks>
+            </div>
         </div>
     );
 };
