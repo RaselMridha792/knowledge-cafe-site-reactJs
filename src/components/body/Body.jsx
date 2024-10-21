@@ -28,6 +28,9 @@ const Body = () => {
     const handleBookMark = (blog) =>{
         const newBookmark = [...bookmark, blog]
         setBookmark(newBookmark);
+        const removeId = blog.id;
+        const reminingBook = allBookmarks.filter(bookmark => bookmark.id !== removeId);
+        setAllBookMarks(reminingBook);
     }
     return (
         <div className="flex flex-col md:flex-row w-full gap-7 py-10">

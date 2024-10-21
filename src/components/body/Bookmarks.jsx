@@ -21,7 +21,7 @@ const Bookmarks = ({bookmark, allBookmarks}) => {
                         Total Book Marked:{allBookmarks.length}
                     </h1>
                     {
-                        allBookmarks.map(allBookmark => <Bookmarked key={allBookmark.id} allBookmark={allBookmark}></Bookmarked>)
+                        allBookmarks.map((allBookmark, idx) => <Bookmarked key={idx} allBookmark={allBookmark}></Bookmarked>)
                     }
                 </div>
             </div>
